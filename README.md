@@ -1,2 +1,2 @@
 # Algorithms-and-Data-Structures 
- My solutions
+ My implementation of some structures
