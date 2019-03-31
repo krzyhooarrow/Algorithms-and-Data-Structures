@@ -5,10 +5,10 @@ public class ImprovedQuickSort implements Sortable {
 
     @Override
     public void sort(int[] array, boolean b) {
-    if (b)
-        quicksortASC(array,0,array.length-1);
-    else
-        quicksortDESC(array,0,array.length-1);
+        if (b)
+            quicksortASC(array, 0, array.length - 1);
+        else
+            quicksortDESC(array, 0, array.length - 1);
     }
 
     public int getCounterCOMP() {
@@ -21,16 +21,17 @@ public class ImprovedQuickSort implements Sortable {
 
     @Override
     public void resetCounter() {
-        counterCOMP=0;
-        counterSWAP=0;
+        counterCOMP = 0;
+        counterSWAP = 0;
     }
 
     public void quicksortASC(int[] A, int p, int r) {
         int q;
         if (p < r) {
-            q = partitionASC(A, p, r);
-            quicksortASC(A, p, q - 1);
-            quicksortASC(A, q + 1, r);
+
+                q = partitionASC(A, p, r);
+                quicksortASC(A, p, q - 1);
+                quicksortASC(A, q + 1, r);
 
         }
     }
@@ -40,9 +41,9 @@ public class ImprovedQuickSort implements Sortable {
         int q;
         if (p < r) {
 
-            q = partitionDESC(A, p, r);
-            quicksortDESC(A, p, q);
-            quicksortDESC(A, q + 1, r);
+                q = partitionDESC(A, p, r);
+                quicksortDESC(A, p, q);
+                quicksortDESC(A, q + 1, r);
 
 
         }
