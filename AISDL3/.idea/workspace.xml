@@ -1,0 +1,782 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="65795195-aa90-473c-8abd-8d1a59ffae89" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Algorithms/Dijkstra.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Algorithms/Kosaraju.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Algorithms/Kruskal.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Algorithms/Prime.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Algorithms/UnionFind.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Models/Edge.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Models/Element.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Models/Graph.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Models/PriorityAble.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Structures/PriorityQueque.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Structures/Stack.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Zadanie1.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Zadanie2.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Zadanie3.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Zadanie4.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../BIOINF1-3/src/sample/DotMatrix.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../BIOINF1-3/src/sample/DotMatrix2.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../BIOINF1-3/src/sample/FastaFromUrl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../BIOINF1-3/src/sample/FastaReader.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../BIOINF1-3/src/sample/Sequence.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../BIOINF1-3/src/sample/dna.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../BIOINF1-3/src/sample/se1.fasta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../BIOINF1-3/src/sample/se2.fasta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../BikeService/.idea/compiler.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../BikeService/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../BikeService/src/main/java/Test.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../BioInf-zad2/Bioinformatyka2/se1.fasta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../BioInf-zad2/Bioinformatyka2/se2.fasta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Bioinformatyka2/Bioinformatyka3/1.fasta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Bioinformatyka2/Bioinformatyka3/2.fasta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Bioinformatyka2/Bioinformatyka3/MatrixSub.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../TechnologieSieciowe/src/Graph.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../TechnologieSieciowe/src/Graph2.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../TechnologieSieciowe/src/Main.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../TechnologieSieciowe/src/Verticle.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Bioinformatyka1/.idea/encodings.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Bioinformatyka1/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Bioinformatyka1/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Bioinformatyka1/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Bioinformatyka1/.idea/workspace.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Bioinformatyka1/Bioinformatyka1.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Bioinformatyka1/DotMatrix(fasta1,fasta2).png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Bioinformatyka1/chart.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Bioinformatyka1/fasta.fasta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Bioinformatyka1/fasta2.fasta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Bioinformatyka1/out/production/Bioinformatyka1/DotMatrix.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Bioinformatyka1/out/production/Bioinformatyka1/FastaFromUrl.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Bioinformatyka1/out/production/Bioinformatyka1/FastaReader.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Bioinformatyka1/out/production/Bioinformatyka1/META-INF/Bioinformatyka1.kotlin_module" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Bioinformatyka1/out/production/Bioinformatyka1/Main.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Bioinformatyka1/out/production/Bioinformatyka1/Sequence.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Bioinformatyka1/src/DotMatrix.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Bioinformatyka1/src/FastaFromUrl.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Bioinformatyka1/src/FastaReader.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Bioinformatyka1/src/Main.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Bioinformatyka1/src/Sequence.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../DirectionsApi/src/main/java/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/../DirectionsApi/src/main/java/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ListaNr2/.idea/encodings.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ListaNr2/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ListaNr2/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ListaNr2/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ListaNr2/.idea/workspace.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ListaNr2/ListaNr2.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ListaNr2/out/production/ListaNr2/HeapSort.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ListaNr2/out/production/ListaNr2/InsertionSort.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ListaNr2/out/production/ListaNr2/Main.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ListaNr2/out/production/ListaNr2/QuickSort.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ListaNr2/out/production/ListaNr2/SelectSort.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ListaNr2/src/HeapSort.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ListaNr2/src/InsertionSort.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ListaNr2/src/Main.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ListaNr2/src/QuickSort.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ListaNr2/src/SelectSort.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../README.md" beforeDir="false" />
+    </list>
+    <ignored path="$PROJECT_DIR$/out/" />
+    <ignored path="$PROJECT_DIR$/target/" />
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FavoritesManager">
+    <favorites_list name="AISDL3" />
+  </component>
+  <component name="FileEditorManager">
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/Zadanie1.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="495">
+              <caret line="33" column="9" lean-forward="true" selection-start-line="33" selection-start-column="9" selection-end-line="33" selection-end-column="9" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/Structures/Stack.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="638">
+              <caret line="43" column="9" lean-forward="true" selection-start-line="43" selection-start-column="9" selection-end-line="43" selection-end-column="9" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/Algorithms/Kruskal.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="510">
+              <caret line="37" selection-start-line="37" selection-end-line="37" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/Algorithms/UnionFind.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="255">
+              <caret line="22" column="15" lean-forward="true" selection-start-line="22" selection-start-column="15" selection-end-line="22" selection-end-column="15" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/Algorithms/Prime.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="420">
+              <caret line="38" selection-start-line="38" selection-end-line="38" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/Zadanie3.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state>
+              <caret line="38" column="48" lean-forward="true" selection-start-line="38" selection-start-column="48" selection-end-line="38" selection-end-column="48" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/Zadanie4.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="188">
+              <caret line="52" column="6" lean-forward="true" selection-start-line="52" selection-start-column="6" selection-end-line="52" selection-end-column="6" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/Algorithms/Dijkstra.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="15">
+              <caret line="25" column="22" selection-start-line="25" selection-start-column="22" selection-end-line="25" selection-end-column="22" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/Algorithms/Kosaraju.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="300">
+              <caret line="20" selection-start-line="20" selection-end-line="20" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/Structures/PriorityQueque.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-7">
+              <caret line="90" column="25" lean-forward="true" selection-start-line="90" selection-start-column="25" selection-end-line="90" selection-end-column="25" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#586#587#0" expanded="true" />
+                <element signature="e#638#639#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Interface" />
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>Searc</find>
+      <find>find</find>
+      <find>searc</find>
+      <find>elements</find>
+      <find>Edge</find>
+      <find>we</find>
+      <find>swap</find>
+      <find>hea</find>
+      <find>n1w</find>
+      <find>n353w</find>
+    </findStrings>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/src/main/java/TFacade.java" />
+        <option value="$PROJECT_DIR$/src/main/java/TTitle_book.java" />
+        <option value="$PROJECT_DIR$/src/main/java/VerticleDijkstra.java" />
+        <option value="$PROJECT_DIR$/src/main/java/Verticle.java" />
+        <option value="$PROJECT_DIR$/src/main/java/Edges.java" />
+        <option value="$PROJECT_DIR$/src/main/java/DPQ.java" />
+        <option value="$PROJECT_DIR$/src/main/java/Verticles.java" />
+        <option value="$PROJECT_DIR$/src/main/java/Vertex.java" />
+        <option value="$PROJECT_DIR$/src/main/java/DijkstraPQ.java" />
+        <option value="$PROJECT_DIR$/src/main/java/PQueque.java" />
+        <option value="$PROJECT_DIR$/src/main/java/PQueue.java" />
+        <option value="$PROJECT_DIR$/src/main/java/Task.java" />
+        <option value="$PROJECT_DIR$/src/main/java/PriorityQueue.java" />
+        <option value="$PROJECT_DIR$/src/main/java/Prim.java" />
+        <option value="$PROJECT_DIR$/src/main/java/HeapMin.java" />
+        <option value="$PROJECT_DIR$/src/main/java/Queque.java" />
+        <option value="$PROJECT_DIR$/src/main/java/MySet.java" />
+        <option value="$PROJECT_DIR$/src/main/java/Graph.java" />
+        <option value="$PROJECT_DIR$/src/main/java/UnionFind.java" />
+        <option value="$PROJECT_DIR$/src/main/java/Test.java" />
+        <option value="$PROJECT_DIR$/src/main/java/Edge.java" />
+        <option value="$PROJECT_DIR$/src/main/java/Heap.java" />
+        <option value="$PROJECT_DIR$/src/main/java/test/Car.java" />
+        <option value="$PROJECT_DIR$/src/main/java/test/Facade.java" />
+        <option value="$PROJECT_DIR$/src/main/java/Kruskal.java" />
+        <option value="$PROJECT_DIR$/src/main/java/Prime.java" />
+        <option value="$PROJECT_DIR$/src/main/java/Tarjan.java" />
+        <option value="$PROJECT_DIR$/src/main/java/Element.java" />
+        <option value="$PROJECT_DIR$/src/main/java/PriorityQueque.java" />
+        <option value="$PROJECT_DIR$/src/main/java/Dijkstra.java" />
+        <option value="$PROJECT_DIR$/src/main/java/Algorithms/UnionFind.java" />
+        <option value="$PROJECT_DIR$/src/main/java/Structures/Stack.java" />
+        <option value="$PROJECT_DIR$/src/main/java/Algorithms/DSFstack.java" />
+        <option value="$PROJECT_DIR$/src/main/java/Algorithms/Tarjan.java" />
+        <option value="$PROJECT_DIR$/src/main/java/Structures/Valuable.java" />
+        <option value="$PROJECT_DIR$/src/main/java/Structures/PriorityAble.java" />
+        <option value="$PROJECT_DIR$/src/main/java/Models/Element.java" />
+        <option value="$PROJECT_DIR$/src/main/java/Algorithms/Dijkstra.java" />
+        <option value="$PROJECT_DIR$/src/main/java/Models/PriorityAble.java" />
+        <option value="$PROJECT_DIR$/src/main/java/Models/Edge.java" />
+        <option value="$PROJECT_DIR$/src/main/java/Structures/Heap.java" />
+        <option value="$PROJECT_DIR$/src/main/java/Algorithms/Prime.java" />
+        <option value="$PROJECT_DIR$/src/main/java/Algorithms/Kruskal.java" />
+        <option value="$PROJECT_DIR$/src/main/java/Zadanie3.java" />
+        <option value="$PROJECT_DIR$/src/main/java/Zadanie2.java" />
+        <option value="$PROJECT_DIR$/src/main/java/Structures/PriorityQueque.java" />
+        <option value="$PROJECT_DIR$/src/main/java/Zadanie1.java" />
+        <option value="$PROJECT_DIR$/src/main/java/Models/Graph.java" />
+        <option value="$PROJECT_DIR$/src/main/java/Zadanie4.java" />
+        <option value="$PROJECT_DIR$/src/main/java/Algorithms/Graph.java" />
+        <option value="$PROJECT_DIR$/src/main/java/Algorithms/Kosaraju.java" />
+      </list>
+    </option>
+  </component>
+  <component name="MavenImportPreferences">
+    <option name="importingSettings">
+      <MavenImportingSettings>
+        <option name="importAutomatically" value="true" />
+      </MavenImportingSettings>
+    </option>
+  </component>
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="312" />
+    <option name="y" value="69" />
+    <option name="width" value="1376" />
+    <option name="height" value="795" />
+  </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="ProjectView">
+    <navigator proportions="" version="1">
+      <foldersAlwaysOnTop value="true" />
+    </navigator>
+    <panes>
+      <pane id="PackagesPane" />
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="AISDL3" type="b2602c69:ProjectViewProjectNode" />
+              <item name="AISDL3" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="AISDL3" type="b2602c69:ProjectViewProjectNode" />
+              <item name="AISDL3" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="AISDL3" type="b2602c69:ProjectViewProjectNode" />
+              <item name="AISDL3" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="AISDL3" type="b2602c69:ProjectViewProjectNode" />
+              <item name="AISDL3" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="AISDL3" type="b2602c69:ProjectViewProjectNode" />
+              <item name="AISDL3" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="Algorithms" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="AISDL3" type="b2602c69:ProjectViewProjectNode" />
+              <item name="AISDL3" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="Structures" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="AISDL3" type="b2602c69:ProjectViewProjectNode" />
+              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+      <pane id="Scope" />
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1556405260069" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
+    <property name="nodejs_npm_path_reset_for_default_project" value="true" />
+    <property name="restartRequiresConfirmation" value="false" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CreateClassDialog.RecentsKey">
+      <recent name="Structures" />
+      <recent name="" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/main/java/test" />
+      <recent name="$PROJECT_DIR$/src/main/java" />
+    </key>
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="RunManager" selected="Application.Graph">
+    <configuration name="Graph" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Algorithms.Graph" />
+      <module name="AISDL3" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="Algorithms.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Zadanie1" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Zadanie1" />
+      <module name="AISDL3" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Zadanie2" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Zadanie2" />
+      <module name="AISDL3" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Zadanie3" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Zadanie3" />
+      <module name="AISDL3" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Zadanie4" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Zadanie4" />
+      <module name="AISDL3" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.Graph" />
+        <item itemvalue="Application.Zadanie4" />
+        <item itemvalue="Application.Zadanie2" />
+        <item itemvalue="Application.Zadanie3" />
+        <item itemvalue="Application.Zadanie1" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="65795195-aa90-473c-8abd-8d1a59ffae89" name="Default Changelist" comment="" />
+      <created>1554408743995</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1554408743995</updated>
+      <workItem from="1554408747402" duration="5219000" />
+      <workItem from="1554459888420" duration="1276000" />
+      <workItem from="1554463037613" duration="1101000" />
+      <workItem from="1554543953803" duration="10144000" />
+      <workItem from="1554554218148" duration="34292000" />
+      <workItem from="1554590948314" duration="254000" />
+      <workItem from="1554596662764" duration="4967000" />
+      <workItem from="1554632903518" duration="5293000" />
+      <workItem from="1554641890258" duration="2471000" />
+      <workItem from="1554650908898" duration="3836000" />
+      <workItem from="1554655224026" duration="21432000" />
+      <workItem from="1554708563086" duration="617000" />
+      <workItem from="1554716866797" duration="18384000" />
+      <workItem from="1554839409081" duration="1933000" />
+      <workItem from="1554917716637" duration="843000" />
+      <workItem from="1554928400700" duration="492000" />
+      <workItem from="1555618093730" duration="2822000" />
+      <workItem from="1555684315577" duration="10582000" />
+      <workItem from="1555702198380" duration="72000" />
+      <workItem from="1555703176998" duration="11530000" />
+      <workItem from="1555781838925" duration="682000" />
+      <workItem from="1555848099408" duration="7153000" />
+      <workItem from="1555863621778" duration="10126000" />
+      <workItem from="1556390288762" duration="7888000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TimeTrackingManager">
+    <option name="totallyTimeSpent" value="163409000" />
+  </component>
+  <component name="TodoView">
+    <todo-panel id="selected-file">
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+    <todo-panel id="all">
+      <are-packages-shown value="true" />
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="0" y="27" width="1920" height="1053" extended-state="6" />
+    <layout>
+      <window_info id="Structure" order="0" side_tool="true" weight="0.2497332" />
+      <window_info id="Image Layers" order="1" />
+      <window_info id="Designer" order="2" />
+      <window_info id="UI Designer" order="3" />
+      <window_info id="Capture Tool" order="4" />
+      <window_info id="Favorites" order="5" side_tool="true" />
+      <window_info active="true" content_ui="combo" id="Project" order="6" sideWeight="0.49893278" visible="true" weight="0.1398079" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Find" order="1" sideWeight="0.49626467" weight="0.3293348" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.4674493" weight="0.26390404" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.3991276" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="Docker" order="6" show_stripe_button="false" />
+      <window_info anchor="bottom" id="TODO" order="7" sideWeight="0.49893278" weight="0.3293348" />
+      <window_info anchor="bottom" id="Version Control" order="8" sideWeight="0.49893278" weight="0.3293348" />
+      <window_info anchor="bottom" id="Database Changes" order="9" />
+      <window_info anchor="bottom" id="Terminal" order="10" sideWeight="0.49839914" weight="0.26826608" />
+      <window_info anchor="bottom" id="Event Log" order="11" sideWeight="0.5037353" side_tool="true" visible="true" weight="0.3293348" />
+      <window_info anchor="bottom" id="Messages" order="12" sideWeight="0.47972253" weight="0.3293348" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="right" id="Palette" order="3" />
+      <window_info anchor="right" id="Database" order="4" />
+      <window_info anchor="right" id="Theme Preview" order="5" />
+      <window_info anchor="right" id="Maven" order="6" />
+      <window_info anchor="right" id="Capture Analysis" order="7" />
+      <window_info anchor="right" id="Palette&#9;" order="8" />
+    </layout>
+    <layout-to-restore>
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.26040554" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info id="Image Layers" order="2" />
+      <window_info id="Designer" order="3" />
+      <window_info id="UI Designer" order="4" />
+      <window_info id="Capture Tool" order="5" />
+      <window_info id="Favorites" order="6" side_tool="true" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.3293348" />
+      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.33478734" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.3991276" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Version Control" order="8" />
+      <window_info anchor="bottom" id="Database Changes" order="9" />
+      <window_info anchor="bottom" id="Terminal" order="10" />
+      <window_info anchor="bottom" id="Event Log" order="11" side_tool="true" />
+      <window_info anchor="bottom" id="Messages" order="12" weight="0.3293348" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="right" id="Palette" order="3" />
+      <window_info anchor="right" id="Database" order="4" />
+      <window_info anchor="right" id="Theme Preview" order="5" />
+      <window_info anchor="right" id="Maven" order="6" />
+      <window_info anchor="right" id="Capture Analysis" order="7" />
+      <window_info anchor="right" id="Palette&#9;" order="8" />
+    </layout-to-restore>
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/src/main/java/TBook.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/TFactory.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/TFacade.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/TTitle_book.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/Verticle.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/DPQ.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/Vertex.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/DijkstraPQ.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/Task.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/PriorityQueue.java" />
+    <entry file="file://$PROJECT_DIR$/dane.txt">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pom.xml">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/Queque.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/MySet.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/test/Car.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/test/Client.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/test/Factory.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/test/Facade.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/Test.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/Structures/PriorityAble.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/Structures/Valuable.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/Models/Edge.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-202">
+          <caret line="5" column="12" lean-forward="true" selection-start-line="5" selection-start-column="12" selection-end-line="5" selection-end-column="12" />
+          <folding>
+            <element signature="e#344#345#0" expanded="true" />
+            <element signature="e#375#376#0" expanded="true" />
+            <element signature="e#403#404#0" expanded="true" />
+            <element signature="e#430#431#0" expanded="true" />
+            <element signature="e#460#461#0" expanded="true" />
+            <element signature="e#489#490#0" expanded="true" />
+            <element signature="e#700#701#0" expanded="true" />
+            <element signature="e#745#746#0" expanded="true" />
+            <element signature="e#791#792#0" expanded="true" />
+            <element signature="e#825#826#0" expanded="true" />
+            <element signature="e#868#869#0" expanded="true" />
+            <element signature="e#895#896#0" expanded="true" />
+            <element signature="e#943#944#0" expanded="true" />
+            <element signature="e#970#971#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/Models/Element.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="225">
+          <caret line="17" column="37" lean-forward="true" selection-start-line="17" selection-start-column="37" selection-end-line="17" selection-end-column="37" />
+          <folding>
+            <element signature="e#381#382#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/Structures/Heap.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/Models/PriorityAble.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="75">
+          <caret line="5" column="30" selection-start-line="5" selection-start-column="30" selection-end-line="5" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/Zadanie2.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="195">
+          <caret line="17" column="2" selection-start-line="17" selection-start-column="2" selection-end-line="28" selection-end-column="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/Models/Graph.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="435">
+          <caret line="37" column="6" selection-start-line="37" selection-start-column="6" selection-end-line="38" selection-end-column="55" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/Structures/PriorityQueque.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-7">
+          <caret line="90" column="25" lean-forward="true" selection-start-line="90" selection-start-column="25" selection-end-line="90" selection-end-column="25" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#586#587#0" expanded="true" />
+            <element signature="e#638#639#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/Zadanie3.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret line="38" column="48" lean-forward="true" selection-start-line="38" selection-start-column="48" selection-end-line="38" selection-end-column="48" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/Models/Graph2.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="30">
+          <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/Algorithms/Graph.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1252">
+          <caret line="7" column="1" lean-forward="true" selection-start-line="7" selection-start-column="1" selection-end-line="7" selection-end-column="1" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/Algorithms/Dijkstra.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="15">
+          <caret line="25" column="22" selection-start-line="25" selection-start-column="22" selection-end-line="25" selection-end-column="22" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/Algorithms/DSFstack.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="795">
+          <caret line="55" column="40" selection-start-line="55" selection-start-column="40" selection-end-line="55" selection-end-column="40" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/Algorithms/Tarjan.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-135">
+          <caret line="13" selection-start-line="13" selection-end-line="13" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/Zadanie1.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="495">
+          <caret line="33" column="9" lean-forward="true" selection-start-line="33" selection-start-column="9" selection-end-line="33" selection-end-column="9" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/Structures/Stack.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="638">
+          <caret line="43" column="9" lean-forward="true" selection-start-line="43" selection-start-column="9" selection-end-line="43" selection-end-column="9" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/Algorithms/UnionFind.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="22" column="15" lean-forward="true" selection-start-line="22" selection-start-column="15" selection-end-line="22" selection-end-column="15" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/Algorithms/Prime.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="420">
+          <caret line="38" selection-start-line="38" selection-end-line="38" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/Algorithms/Kruskal.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="510">
+          <caret line="37" selection-start-line="37" selection-end-line="37" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/Algorithms/Kosaraju.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="300">
+          <caret line="20" selection-start-line="20" selection-end-line="20" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/Zadanie4.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="188">
+          <caret line="52" column="6" lean-forward="true" selection-start-line="52" selection-start-column="6" selection-end-line="52" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+  </component>
+</project>
