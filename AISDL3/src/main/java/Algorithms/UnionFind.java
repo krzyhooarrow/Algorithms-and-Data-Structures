@@ -20,20 +20,23 @@ public class UnionFind {
 
     }
 
+
     public Set<Integer> find(int x) {
         for (Set<Integer> set : SetsList) {
             if (set.contains(x))
                 return set;
         }
+        System.out.println("Nul");
         return null;
     }
 
 
     public <T> Set<T> union(Set<T> a, Set<T> b) {
         a.addAll(b);
-        b.clear();
+//        b.clear();
+        SetsList.remove(b);
         return a;
-    }
+    }//sets remove
 }
 
 

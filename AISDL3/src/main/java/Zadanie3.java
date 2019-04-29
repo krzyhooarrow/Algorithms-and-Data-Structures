@@ -1,3 +1,4 @@
+import Algorithms.Borµwka;
 import Algorithms.Kruskal;
 import Algorithms.Prime;
 import Models.Edge;
@@ -14,47 +15,61 @@ public class Zadanie3 {
     // dla 10k i 100k t = 10s/41s i to trzeba skrocic
 
         Random generator = new Random();
-        int vertexSize = 1000;
-        int edgesSize = 10000;
+        int vertexSize = 9;
+//        int edgesSize = 10000;
         Graph graph = new Graph(vertexSize);
 //
-//        Collections.addAll(graph.getEdges()
-//                ,new Models.Edge(0,1,31)
-//                ,new Models.Edge(0,2,31)
-//                ,new Models.Edge(0,3,31)
-//                ,new Models.Edge(0,4,31)
-//                ,new Models.Edge(4,0,12)
-//                ,new Models.Edge(0,5,31)       // te 4 pokazuja ze nieskierowany
-//                ,new Models.Edge(1,2,42)
-//                ,new Models.Edge(2,5,51)
-//                ,new Models.Edge(5,0,61)
-//                ,new Models.Edge(0,4,27)
-//                ,new Models.Edge(4,5,15)
-//                ,new Models.Edge(2,3,22)
-//                ,new Models.Edge(5,3,64)
-//                ,new Models.Edge(3,1,34)
-//
-//        );
+        Collections.addAll(graph.getEdges()
+                ,new Models.Edge(0,1,4)
+                ,new Models.Edge(1,2,8)
+                ,new Models.Edge(2,3,7)
+                ,new Models.Edge(3,4,9)
+                ,new Models.Edge(4,5,10)
+                ,new Models.Edge(5,6,2)
+                ,new Models.Edge(6,7,1)
+                ,new Models.Edge(7,0,-2)
+
+
+                ,new Models.Edge(1,7,11)
+
+
+                ,new Models.Edge(2,8,0)
+                ,new Models.Edge(7,8,7)
+
+                ,new Models.Edge(6,8,6)
+
+                ,new Models.Edge(2,5,4)
+
+        );
 
         long start = System.currentTimeMillis();
         int k;
         int l;
-        for (int i = 0; i < edgesSize ; i++) {
-            k = generator.nextInt(vertexSize);
-            l = generator.nextInt(vertexSize);
-            if (k!=l  )
-            graph.getEdges().add(new Edge(k,l, generator.nextInt(500) + 1));
-        }
+//        for (int i = 0; i < edgesSize ; i++) {
+//            k = generator.nextInt(vertexSize);
+//            l = generator.nextInt(vertexSize);
+//            if (k!=l  )
+//            graph.getEdges().add(new Edge(k,l, generator.nextInt(500) + 1));
+//        }
          graph.calculateAdjacencyListUndirected();
-
+        System.out.println("\nkruskal");
         Kruskal(graph);
         long stop = System.currentTimeMillis();
         System.out.println("Time: " + (stop - start));
-        System.out.println();
+
+
         start = System.currentTimeMillis();
+        System.out.println("\nprime");
         Prime(graph,0);
         System.out.println("Time: " + (System.currentTimeMillis() - start));
         System.out.println();
+        start = System.currentTimeMillis();
+
+        System.out.println("borówka");
+        Borµwka borµwka = new Borµwka(graph);
+        borµwka.find();
+        System.out.println("Time: " + (System.currentTimeMillis() - start));
+
     }
 
     public static void Kruskal(Graph graph){

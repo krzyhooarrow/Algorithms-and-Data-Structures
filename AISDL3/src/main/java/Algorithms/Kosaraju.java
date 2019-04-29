@@ -31,12 +31,17 @@ public class Kosaraju {
         Graph g = new Graph(graph.getVerticles());
         for (int i = 0; i < graph.getVerticles(); i++)
             g.getAdjacencyLists().add(new LinkedList<Edge>());
+
         for (Edge e:graph.getEdges()
-             ) {
+        ) {
+
             g.getAdjacencyLists().get(e.getNext()).add(new Edge(e.getNext(),e.getPrevious(),e.getWeight()));
+            g.addEdge(new Edge(e.getNext(),e.getPrevious(),e.getWeight()));
 
         }
         g.calculateAdjacencyListUndirected();
+
+
         return g;
     }
 
@@ -45,14 +50,11 @@ public class Kosaraju {
 
         visited[v] = true;
 
-
         for (Edge e:graph.getAdjacencyLists().get(v)
-             ) {
+        ) {
             if(!visited[e.getNext()])
                 fillOrder(e.getNext(), visited, stack,graph);
         }
-
-
         stack.push(new Integer(v));
     }
     public void printSCCs()
@@ -70,7 +72,6 @@ public class Kosaraju {
 
 
         Graph graph  = getTranspose();
-
 
         for (int i = 0; i < graph.getVerticles(); i++)
             visited[i] = false;

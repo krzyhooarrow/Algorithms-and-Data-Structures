@@ -10,7 +10,7 @@ import java.util.*;
 public class Prime {
     private UnionFind unionFind = new UnionFind();
     private ArrayList<Edge> T = new ArrayList<>();  // przechowywane krawedzie
-    private HashSet hashSet = new HashSet();
+
 
     public void calculate(Graph graph, int source) {
 
@@ -80,10 +80,7 @@ public class Prime {
     }
 
     private boolean check(Graph graph) {
-      if (unionFind.find(0).size()!=graph.getVerticles())
-        return false;
-
-        return true;
+        return unionFind.find(0).size() == graph.getVerticles();
     }
 
     public ArrayList<Edge> getT() {

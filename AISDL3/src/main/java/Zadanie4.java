@@ -1,5 +1,6 @@
 
 import Algorithms.Kosaraju;
+import Models.Edge;
 import Models.Graph;
 
 import java.util.Collections;
@@ -12,10 +13,10 @@ public class Zadanie4 {
 
 
         Random generator = new Random();
-        int vertexSize = 5;
-        int edgesSize = 40;
+        int vertexSize = 8;
+        int edgesSize = 10000;
         Graph graph = new Graph(vertexSize);
-//
+
         int k;
         int l;
 //        for (int i = 0; i < edgesSize; i++) {
@@ -24,44 +25,39 @@ public class Zadanie4 {
 //            if (k != l )
 //                graph.getEdges().add(new Edge(k, l, generator.nextInt(500) + 1));
 //        }
-//            graph.calculateAdjacencyListUndirected();
 
-//        DSFstack.getAlgorithm().walk(graph,0);
-
-//
-//
-//        Tarjan.getAlgorithm().calculate(graph);
 
         Kosaraju g = new Kosaraju(graph);
 
         Collections.addAll(graph.getEdges()
-                ,new Models.Edge(2,1,1)
-                ,new Models.Edge(0,2,1)
-                ,new Models.Edge(1,0,1)
-                ,new Models.Edge(0,3,1)
-                ,new Models.Edge(3,4,3)
+                ,new Models.Edge(0,1,1)
+                ,new Models.Edge(2,0,2)
+                ,new Models.Edge(2,3,2)
+                ,new Models.Edge(1,3,2)
+                ,new Models.Edge(3,6,2)
+                ,new Models.Edge(6,3,2)
+                ,new Models.Edge(4,6,2)
+                ,new Models.Edge(5,7,2)
+                ,new Models.Edge(7,7,2)
+                ,new Models.Edge(6,7,2)
+                ,new Models.Edge(4,5,2)
+                ,new Models.Edge(5,4,2)
+                ,new Models.Edge(1,2,2)
+//                ,new Models.Edge(3,7,14)
+                //c to 2 d to 3 g to 6
+
+
+//                ,new Models.Edge(0,2,1)
+//                ,new Models.Edge(1,0,1)
+//                ,new Models.Edge(0,3,1)
+//                ,new Models.Edge(3,4,3)
 
 
         );
-
-//        g.addEdge(2, 1);
-//        g.addEdge(0, 2);
-//        g.addEdge(1, 0);
-//        g.addEdge(0, 3);
-//        g.addEdge(3, 4);
-
+//        System.out.println(graph.getEdges());
         graph.calculateAdjacencyListUndirected();
-//        g.addEdge(0, 2);
-//        g.addEdge(3, 0);
-//        g.addEdge(5, 0);
-//        g.addEdge(4, 1);
-//        g.addEdge(3, 1);
-//        g.addEdge(1, 2);
-//        g.addEdge(4, 2);
-//        g.addEdge(3, 4);
-//        g.addEdge(5, 4);
-        System.out.println("Following are strongly connected components "+
-                "in given graph ");
+
+        System.out.println("Spójne składowe  :");
         g.printSCCs();
 
     }

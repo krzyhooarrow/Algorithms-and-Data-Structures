@@ -6,9 +6,8 @@ import Models.PriorityAble;
 import java.lang.reflect.Array;
 import java.util.Arrays;
 
-// kolejka dalej zbuggowana...
 
-@SuppressWarnings("Duplicates")
+
 public class PriorityQueque<T extends Comparable<T>> {
 
     private PriorityAble<T>[] array;
@@ -31,7 +30,7 @@ public class PriorityQueque<T extends Comparable<T>> {
         return (int) Math.floor((i - 1) / 2);
     }
 
-    void clear() {
+    public void clear() {
         this.array = Arrays.copyOf(array, 1);
         array[0] = null;
         heapSize = 0;

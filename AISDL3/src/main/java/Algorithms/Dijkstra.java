@@ -47,6 +47,7 @@ public class Dijkstra {
                     if (d[edge.getNext()] > d[edge.getPrevious()] + edge.getWeight()) {
                         d[edge.getNext()] = d[edge.getPrevious()] + edge.getWeight();
                         p[edge.getNext()] = edge.getPrevious();
+                        priorityQueque.changePriority(edge.getNext(),  d[edge.getNext()]);
                     }
                 }
 

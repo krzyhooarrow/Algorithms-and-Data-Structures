@@ -57,10 +57,7 @@ public class Kruskal {
     }
 
     private boolean check(Graph graph) {
-        if (unionFind.find(0).size() != graph.getVerticles())
-            return false;
-
-        return true;
+        return unionFind.find(0).size() == graph.getVerticles();
     }
 
 }

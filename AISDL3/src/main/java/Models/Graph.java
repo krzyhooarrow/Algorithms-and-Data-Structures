@@ -35,6 +35,7 @@ public class Graph {
 
 
     public void calculateAdjacencyListUndirected() {
+        adjacencyLists.clear();
         for (int i = 0; i < verticles; i++)
             adjacencyLists.add(new LinkedList<Edge>());
 
@@ -47,6 +48,7 @@ public class Graph {
 
     }
     public void calculateAdjacencyListDirected() {
+        adjacencyLists.clear();
         for (int i = 0; i < verticles; i++)
             adjacencyLists.add(new LinkedList<Edge>());
 
