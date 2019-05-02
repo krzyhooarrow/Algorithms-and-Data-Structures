@@ -71,20 +71,20 @@ public class BinarySearchTree {
         return false;
     }
 
-    void deleteKey(Comparable key)
+    void delete(Comparable key)
     {
-        root = delete(root, key);
+        root = del(root, key);
     }
 
-    private Node delete(Node root, Comparable key)
+    private Node del(Node root, Comparable key)
     {
       //puste
         if (root == null)  return root;
 
         if (key.compareTo(root.getKey())<0)
-            root.setLeft(delete(root.left(), key));
+            root.setLeft(del(root.left(), key));
         else if (key.compareTo(root.getKey())>0)
-            root.setRight(delete(root.right(), key));
+            root.setRight(del(root.right(), key));
         else
         {
             if (root.left() == null)
@@ -93,7 +93,7 @@ public class BinarySearchTree {
                 return root.left();
 
             root.setKey(minValue(root.right()));
-            root.setRight(delete(root.right(), root.getKey()));
+            root.setRight(del(root.right(), root.getKey()));
         }
 
         return root;

@@ -4,31 +4,30 @@ public class Test {
     public static void main(String[] args) {
         Random generator = new Random();
 
-//        BinarySearchTree bst = new BinarySearchTree();
-//
-//        for (int i =0 ;i <30 ; i ++){
-//            bst.insert(i%4);
-//        }
-//        bst.insert(5);
-//        bst.inorder();
-//        bst.deleteKey(1);
-//        bst.inorder();\
 
 
-        RedBlackTree redBlackTree = new RedBlackTree();
+
+        RedBlackTree redBlackTree = new RedBlackTree(); // inserty działają elegancko
 
 
-        for (int k = 0; k < 10000; k++) {
+    redBlackTree.insert(25);
+    redBlackTree.insert(1);
+    redBlackTree.insert(17);
+    redBlackTree.insert(13);
+    redBlackTree.insert(6);
+    redBlackTree.insert(15);
+    redBlackTree.insert(22);
+    redBlackTree.insert(8);
+    redBlackTree.insert(11);
+    redBlackTree.insert(27);
 
-            for (int i = 0; i < 200; i++)
-                redBlackTree.insert(generator.nextInt(100));
 
 
-//            redBlackTree.inorder();
-            System.out.println(redBlackTree.size());
-//            redBlackTree.clear();
 
-        }
+     // jest dwóch czerwonych a czarny ma byc 11
+            // INSERT DZIALA NA BANK 100%
+        redBlackTree.inorder();
+
     }
 }
 
