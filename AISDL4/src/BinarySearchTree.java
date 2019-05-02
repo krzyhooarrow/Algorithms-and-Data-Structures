@@ -1,5 +1,4 @@
-
-
+@SuppressWarnings("Duplicates")
 public class BinarySearchTree {
 
     private int capatity;
@@ -148,12 +147,6 @@ public class BinarySearchTree {
             return this.key.compareTo((T) o.key);
         }
 
-        @Override
-        public String toString() {
-            return "Node {"
-                    + key +
-                    '}';
-        }
     }
 
 }
