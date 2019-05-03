@@ -1,46 +1,58 @@
 import java.util.Random;
-
+@SuppressWarnings("Duplicates")
 public class Test {
     public static void main(String[] args) {
+       test(10000000,10000);
+    }
+    private static void test(int number , int range){
+
         Random generator = new Random();
-
-
-//
+        long t1,t2,t3;
+        t1 = System.currentTimeMillis();
         SplayTree splay = new SplayTree();
-        splay.insert(31);
-        splay.insert(36);
-        for (int i=0 ;i<50 ; i++)
-        splay.insert(generator.nextInt(50));
-        splay.inorder();
-                                // skraca sie bo sie zmienia budowa drzewa , nic sie nie usuwa
-        splay.find(31);
-        splay.find(36);
-        splay.inorder();
-        System.out.println(splay.size());
+        for (int i=0 ;i<number ; i++) {
+            splay.insert(generator.nextInt(range));
 
-////        BinarySearchTree binarySearchTree = new BinarySearchTree();
-////        binarySearchTree.insert(25);
-////        for (int i = 0; i < 50; i++) {
-////            binarySearchTree.insert(generator.nextInt(50));
-////            binarySearchTree.insert(25);
-////
-////            binarySearchTree.inorder();
-//
-//            RedBlackTree redBlackTree = new RedBlackTree();
-//            redBlackTree.insert(25);
-//            for (int i = 0; i < 500; i++)
-//                redBlackTree.insert(generator.nextInt(50));
-//                redBlackTree.insert(25);
-//
-//                redBlackTree.inorder();
-////        FileParser fileParser = new FileParser();
-////        System.out.println(fileParser.parseFile("/home/krzyhoo/Desktop/AISDL4/src/fileparsertest"));
-//
-//
-//            redBlackTree.isBugged();
+        }
+        t1=System.currentTimeMillis()-t1;
+        t2=System.currentTimeMillis();
+        BinarySearchTree binarySearchTree = new BinarySearchTree();
+        for (int i =0 ; i < number;i++) {
+            binarySearchTree.insert(generator.nextInt(range));
 
 
-//        System.out.println(redBlackTree.capatity());
+        }
+        t2=System.currentTimeMillis()-t2;
+        t3=System.currentTimeMillis();
+        RedBlackTree redBlackTree = new RedBlackTree();
+        for (int i=0;i<number ; i ++) {
+            redBlackTree.insert(generator.nextInt(range));
+
+
+        }
+        t3 = System.currentTimeMillis()-t3;
+
+        System.out.println("Splay tree data:");
+        System.out.println("Capatity: " + splay.size());
+        System.out.println("If counter: " +splay.getCounterIF());
+        System.out.println("Time complexity: " + t1 + "ms");
+        System.out.println();
+
+
+        System.out.println("BST tree data:");
+        System.out.println("Capatity: " + binarySearchTree.capatity());
+        System.out.println("If counter: " +binarySearchTree.getCounterIF());
+        System.out.println("Time complexity: " + t2 +"ms");
+        System.out.println();
+
+
+
+        System.out.println("RB tree data:");
+        System.out.println("Capatity: " + redBlackTree.capatity());
+        System.out.println("If counter: " + redBlackTree.getCounterIF());
+        System.out.println("Time complexity: " + t3+"ms");
+        System.out.println();
+
     }
 
 

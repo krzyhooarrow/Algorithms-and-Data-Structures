@@ -1,10 +1,26 @@
-import jdk.nashorn.internal.ir.BinaryNode;
-
 @SuppressWarnings("Duplicates")
 public class SplayTree {
     private  SNode header = new SNode(null);
     private SNode root;
     private int capatity;
+
+
+    private long counterSWAP = 0;
+    private long counterIF =0;
+    private long counterCHANGES=0;
+
+
+    public long getCounterSWAP() {
+        return counterSWAP;
+    }
+
+    public long getCounterIF() {
+        return counterIF;
+    }
+
+    public long getCounterCHANGES() {
+        return counterCHANGES;
+    }
 
     public int size() {
         return capatity;
@@ -18,16 +34,19 @@ public class SplayTree {
     public void insert(Comparable key) {
         SNode n;
         int c;
+        counterIF++;
         if (root == null) {
             capatity++;
             root = new SNode(key);
             return;
         }
         splay(key);
+        counterIF++;
         if ((c = key.compareTo(root.key)) == 0) { // czy w tym drzewie są duplikaty?
             return;
         }
         capatity++;
+        counterIF++;
         n = new SNode(key);
         if (c < 0) {
             n.left = root.left;
@@ -42,36 +61,43 @@ public class SplayTree {
     }
 
      private void splay(Comparable key) {
+
         SNode l, r, t, y;
         l = r = header;
         t = root;
         header.left = header.right = null;
-        for (;;) {
+        while (true) {
             if (key.compareTo(t.key) < 0) {
+                counterIF+=2;
                 if (t.left == null) break;
+                counterIF++;
                 if (key.compareTo(t.left.key) < 0) {
                     y = t.left;                           //rightrot
                     t.left = y.right;
                     y.right = t;
                     t = y;
+                    counterIF++;
                     if (t.left == null) break;
                 }
                 r.left = t;                                 //link right
                 r = t;
                 t = t.left;
             } else if (key.compareTo(t.key) > 0) {
+                counterIF+=3;
                 if (t.right == null) break;
+                counterIF++;
                 if (key.compareTo(t.right.key) > 0) {
                     y = t.right;                            //left rot
                     t.right = y.left;
                     y.left = t;
                     t = y;
+                    counterIF++;
                     if (t.right == null) break;
                 }
                 l.right = t;                                //left link
                 l = t;
                 t = t.right;
-            } else {
+            } else {counterIF+=2;
                 break;
             }
         }
@@ -109,11 +135,13 @@ public class SplayTree {
     public void remove(Comparable key) {
         SNode x;
         splay(key);
+        counterIF++;
         if (key.compareTo(root.key) != 0) {
 
             return;
         }
         capatity--;
+        counterIF++;
         if (root.left == null) {
             root = root.right;
         } else {

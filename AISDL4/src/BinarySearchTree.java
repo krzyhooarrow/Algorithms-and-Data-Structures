@@ -4,8 +4,25 @@ public class BinarySearchTree {
     private Node root;
     private int capatity;
 
+    private long counterSWAP = 0;
+    private long counterIF =0;
+    private long counterCHANGES=0;
+
+
+    public long getCounterSWAP() {
+        return counterSWAP;
+    }
+
+    public long getCounterIF() {
+        return counterIF;
+    }
+
+    public long getCounterCHANGES() {
+        return counterCHANGES;
+    }
+
     public void insert(Comparable a) {
-        if (isEmpty()) {
+        if (isEmpty()) {capatity++;
             root = new Node(a);
         } else {
             capatity++;
@@ -23,16 +40,18 @@ public class BinarySearchTree {
 
     private void downheap(Node node, Node actual) {
         if (node.compareTo(actual) < 0) {
+            counterIF+=2;
             if (actual.left() == null)
                 actual.setLeft(node);
             else
                 downheap(node, actual.left());
         } else if (node.compareTo(actual) > 0) {
+            counterIF+=3;
             if (actual.right() == null)
                 actual.setRight(node);
             else
                 downheap(node, actual.right());
-        }else capatity--;
+        }else          capatity--;
     }
 
 
@@ -55,13 +74,13 @@ public class BinarySearchTree {
         if (!isEmpty()) {
             Node node = root;
             while (node != null && a.compareTo(node.getKey()) != 0) {
-
-                if (a.compareTo(node.getKey()) < 0)
-                    node = node.left();
-                else if (a.compareTo(node.getKey()) > 0)
-                    node = node.right();
-                else break;
-            }
+                counterIF++;
+                if (a.compareTo(node.getKey()) < 0){
+                    node = node.left();   counterIF++;}
+                else if (a.compareTo(node.getKey()) > 0){
+                    node = node.right();   counterIF+=2; }
+                else{counterIF+=2; break;
+            }}
             if (node != null)
                 return true;
         }
@@ -74,18 +93,26 @@ public class BinarySearchTree {
 
     private Node del(Node root, Comparable key) {
         //puste
-        if (root == null) return null;
 
-        if (key.compareTo(root.getKey()) < 0)
+        if (root == null) {
+         counterIF++;   return null;
+        }
+        if (key.compareTo(root.getKey()) < 0){
             root.setLeft(del(root.left(), key));
-        else if (key.compareTo(root.getKey()) > 0)
+        counterIF+=2;
+        }
+        else if (key.compareTo(root.getKey()) > 0){
             root.setRight(del(root.right(), key));
+        counterIF+=3;
+        }
         else {
             capatity--;
-            if (root.left() == null)
-                return root.right();
-            else if (root.right() == null)
-                return root.left();
+            if (root.left() == null){
+                counterIF+=4;
+                return root.right();}
+            else if (root.right() == null){
+                counterIF+=5;
+                return root.left();}
 
             root.setKey(minValue(root.right()));
             root.setRight(del(root.right(), root.getKey()));
@@ -98,6 +125,7 @@ public class BinarySearchTree {
     {
         Comparable minv = root.getKey();
         while (root.left() != null) {
+            counterIF++;
             minv = root.left().getKey();
             root = root.left();
         }

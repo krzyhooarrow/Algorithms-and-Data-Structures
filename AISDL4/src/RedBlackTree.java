@@ -6,9 +6,27 @@ public class RedBlackTree {
     private RBNode root;
     private int capatity;
 
+    private long counterSWAP = 0;
+    private long counterIF = 0;
+    private long counterCHANGES = 0;
+
+
+    public long getCounterSWAP() {
+        return counterSWAP;
+    }
+
+    public long getCounterIF() {
+        return counterIF;
+    }
+
+    public long getCounterCHANGES() {
+        return counterCHANGES;
+    }
+
+
     public ArrayList<RBNode> nodes = new ArrayList<>();
 
-    public void isBugged() {    // do sprawdzenia czy drzewo działa dobrze (nie istnieją 2 sąsiednie czerwone )
+    public void isBugged() {
         for (RBNode r : nodes
         ) {
             if (!r.color) {
@@ -22,16 +40,20 @@ public class RedBlackTree {
         }
     }
 
-    public RedBlackTree() {this.capatity = 0;}
+    public RedBlackTree() {
+        this.capatity = 0;
+    }
 
-    public int capatity(){return capatity;}
+    public int capatity() {
+        return capatity;
+    }
 
     public boolean isEmpty() {
         return root == null;
     }
 
     public void insert(Comparable a) {
-        if (isEmpty()) {
+        if (isEmpty()) {capatity++;
             root = new RBNode(a, true);
         } else {
             RBNode node = new RBNode(a, false);
@@ -45,16 +67,21 @@ public class RedBlackTree {
     private void insertFixUp(RBNode node) {
         RBNode y;
         while (node.parent != null && !node.parent.color) {
-            if (node.parent.parent.left != null && node.parent == node.parent.parent.left) {
+            counterIF++;
 
+            if (node.parent.parent.left != null && node.parent == node.parent.parent.left) {
+                counterIF++;
                 y = node.parent.parent.right;
                 if (y != null && !y.color) {
+                    counterIF++;
                     node.parent.setColor(true);
                     y.changeColor();
                     node.parent.parent.setColor(false);
                     node = node.parent.parent;
                 } else {
+                    counterIF += 2;
                     if (node == node.parent.right) {
+
                         node = node.parent;
                         insertLeftRotate(node);
                     }
@@ -64,6 +91,7 @@ public class RedBlackTree {
                 }
 
             } else if (node.parent.parent.right != null && node.parent == node.parent.parent.right) {
+                counterIF += 3;
                 {
 
                     y = node.parent.parent.left;
@@ -73,6 +101,7 @@ public class RedBlackTree {
                         node.parent.parent.setColor(false);
                         node = node.parent.parent;
                     } else {
+                        counterIF++;
                         if (node == node.parent.left) {
                             node = node.parent;
                             insertRightRotate(node);
@@ -96,11 +125,15 @@ public class RedBlackTree {
             y.right.parent = x;
         }
         y.parent = x.parent;
+        counterIF++;
         if (x.parent == null) {
+            counterIF++;
             this.root = y;
         } else if (x == x.parent.right) {
+            counterIF += 2;
             x.parent.right = y;
         } else {
+            counterIF += 2;
             x.parent.left = y;
         }
         y.right = x;
@@ -113,32 +146,46 @@ public class RedBlackTree {
         node.right = y.left;
         if (y.left != null && y.left.parent != null)
             y.left.parent = node;
+        counterIF++;
         if (y.parent != null)
             y.parent = node.parent;
+        counterIF++;
         if (node.parent == null)
             root = y;
-        else if (node == node.parent.left)
+        else if (node == node.parent.left) {
             node.parent.left = y;
-        else node.parent.right = y;
+            counterIF++;
+        } else {
+            node.parent.right = y;
+            counterIF++;
+        }
+        counterIF++;
         y.left = node;
         node.parent = y;
     }
 
     private void downheap(RBNode node, RBNode actual) {
         if (node.compareTo(actual) < 0) {
+            counterIF++;
             if (actual.left() == null) {
+                counterIF++;
                 actual.setLeft(node);
                 node.setParent(actual);
-            } else
+            } else {
                 downheap(node, actual.left());
+                counterIF++;
+            }
         } else if (node.compareTo(actual) > 0) {
+            counterIF += 2;
             if (actual.right() == null) {
+                counterIF++;
                 actual.setRight(node);
                 node.setParent(actual);
-            } else
+            } else {
                 downheap(node, actual.right());
-        }
-        else capatity--;
+                counterIF++;
+            }
+        } else capatity--;
     }
 
 
@@ -160,21 +207,28 @@ public class RedBlackTree {
         }
     }
 
-    public void clear() {root = null; capatity=0; }
+    public void clear() {
+        root = null;
+        capatity = 0;
+    }
 
     public RBNode findNode(RBNode findNode, RBNode node) {
+        counterIF++;
         if (root == null) {
             return null;
         }
+        counterIF++;
         if (findNode.compareTo(node) < 0) {
             if (node.left != null) {
                 return findNode(findNode, node.left);
             }
         } else if (findNode.compareTo(node) > 0) {
+            counterIF++;
             if (node.right != null) {
                 return findNode(findNode, node.right);
             }
         } else if (findNode.key == node.key) {
+            counterIF+=2;
             return node;
         }
         return null;
@@ -183,22 +237,26 @@ public class RedBlackTree {
 
     public boolean delete(Comparable a) {
         RBNode z = new RBNode(a);
+        counterIF++;
         if ((z = findNode(z, root)) == null)
             return false;
         RBNode x;
         RBNode y = z;
         boolean yc = y.color;
-
+        counterIF++;
         if (z.left == null) {
             x = z.right;
             replace(z, z.right);
         } else if (z.right == null) {
+            counterIF++;
             x = z.left;
             replace(z, z.left);
         } else {
+            counterIF++;
             y = treeMinimum(z.right);
             yc = y.color;
             x = y.right;
+            counterIF++;
             if (y.parent == z)
                 x.parent = y;
             else {
@@ -211,6 +269,7 @@ public class RedBlackTree {
             y.left.parent = y;
             y.color = z.color;
         }
+        counterIF++;
         if (yc)
             fixDelColor(x);
         return true;
@@ -218,7 +277,9 @@ public class RedBlackTree {
 
     private void fixDelColor(RBNode x) {
         while (x != root && x.color) {
+            counterIF++;
             if (x == x.parent.left) {
+                counterIF+=2;
                 RBNode w = x.parent.right;
                 if (!w.color) {
                     w.changeColor();
@@ -231,11 +292,13 @@ public class RedBlackTree {
                     x = x.parent;
                     continue;
                 } else if (w.right.color) {
+                    counterIF++;
                     w.left.setColor(true);
                     w.setColor(false);
                     deleteRotateRight(w);
                     w = x.parent.right;
                 }
+                counterIF++;
                 if (!w.right.color) {
                     w.color = x.parent.color;
                     x.parent.setColor(true);
@@ -244,6 +307,7 @@ public class RedBlackTree {
                     x = root;
                 }
             } else {
+                counterIF+=2;
                 RBNode w = x.parent.left;
                 if (!w.color) {
                     w.setColor(true);
@@ -256,11 +320,13 @@ public class RedBlackTree {
                     x = x.parent;
                     continue;
                 } else if (w.left.color) {
+                    counterIF++;
                     w.right.setColor(true);
                     w.setColor(false);
                     deleteRotateLeft(w);
                     w = x.parent.left;
                 }
+                counterIF++;
                 if (!w.left.color) {
                     w.color = x.parent.color;
                     x.parent.setColor(true);
@@ -277,6 +343,7 @@ public class RedBlackTree {
     private RBNode treeMinimum(RBNode subTreeRoot)  // minimum w danym poddrzewie
     {
         while (subTreeRoot.left != null) {
+            counterIF++;
             subTreeRoot = subTreeRoot.left;
         }
         return subTreeRoot;
@@ -284,22 +351,27 @@ public class RedBlackTree {
 
     private void replace(RBNode target, RBNode with) {
         if (target.parent == null) {
+            counterIF++;
             root = with;
         } else if (target == target.parent.left) {
+            counterIF+=2;
             target.parent.left = with;
-        } else
-            target.parent.right = with;
+        } else{counterIF+=2;
+            target.parent.right = with;}
         with.parent = target.parent;
     }
 
 
     private void deleteRotateLeft(RBNode node) {
         if (node.parent != null) {
+            counterIF++;
             if (node == node.parent.left) {
+
                 node.parent.left = node.right;
             } else {
                 node.parent.right = node.right;
             }
+            counterIF+=2;
             node.right.parent = node.parent;
             node.parent = node.right;
             if (node.right.left != null) {
@@ -308,6 +380,7 @@ public class RedBlackTree {
             node.right = node.right.left;
             node.parent.left = node;
         } else {
+            counterIF++;
             RBNode right = root.right;
             root.right = right.left;
             right.left.parent = root;
@@ -320,12 +393,13 @@ public class RedBlackTree {
 
     private void deleteRotateRight(RBNode node) {
         if (node.parent != null) {
+            counterIF++;
             if (node == node.parent.left) {
                 node.parent.left = node.left;
             } else {
                 node.parent.right = node.left;
             }
-
+            counterIF+=2;
             node.left.parent = node.parent;
             node.parent = node.left;
             if (node.left.right != null) {
@@ -334,6 +408,7 @@ public class RedBlackTree {
             node.left = node.left.right;
             node.parent.right = node;
         } else {
+            counterIF++;
             RBNode left = root.left;
             root.left = root.left.right;
             left.right.parent = root;
