@@ -8,7 +8,7 @@ public class RedBlackTree {
 
     public ArrayList<RBNode> nodes = new ArrayList<>();
 
-    public void isBugged() {
+    public void isBugged() {    // do sprawdzenia czy drzewo działa dobrze (nie istnieją 2 sąsiednie czerwone )
         for (RBNode r : nodes
         ) {
             if (!r.color) {
