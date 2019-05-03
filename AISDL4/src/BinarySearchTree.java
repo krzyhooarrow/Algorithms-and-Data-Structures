@@ -1,28 +1,24 @@
 @SuppressWarnings("Duplicates")
 public class BinarySearchTree {
 
-    private int capatity;
     private Node root;
-
-    public BinarySearchTree() {
-        capatity = 0;
-    }
-
-    public int size() {
-        return capatity;
-    }
+    private int capatity;
 
     public void insert(Comparable a) {
         if (isEmpty()) {
             root = new Node(a);
         } else {
+            capatity++;
             downheap(new Node(a), root);
         }
-        capatity++;
     }
 
+    public int capatity(){return capatity;}
+
+    public BinarySearchTree() {this.capatity=0;}
+
     public boolean isEmpty() {
-        return capatity == 0;
+        return root==null;
     }
 
     private void downheap(Node node, Node actual) {
@@ -31,12 +27,12 @@ public class BinarySearchTree {
                 actual.setLeft(node);
             else
                 downheap(node, actual.left());
-        } else if (node.compareTo(actual) >= 0) {
+        } else if (node.compareTo(actual) > 0) {
             if (actual.right() == null)
                 actual.setRight(node);
             else
                 downheap(node, actual.right());
-        }
+        }else capatity--;
     }
 
 
@@ -56,7 +52,6 @@ public class BinarySearchTree {
     }
 
     public boolean search(Comparable a) {
-
         if (!isEmpty()) {
             Node node = root;
             while (node != null && a.compareTo(node.getKey()) != 0) {
@@ -79,13 +74,14 @@ public class BinarySearchTree {
 
     private Node del(Node root, Comparable key) {
         //puste
-        if (root == null) return root;
+        if (root == null) return null;
 
         if (key.compareTo(root.getKey()) < 0)
             root.setLeft(del(root.left(), key));
         else if (key.compareTo(root.getKey()) > 0)
             root.setRight(del(root.right(), key));
         else {
+            capatity--;
             if (root.left() == null)
                 return root.right();
             else if (root.right() == null)
