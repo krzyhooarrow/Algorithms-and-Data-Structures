@@ -4,7 +4,6 @@ public class BinarySearchTree {
     private int capatity;
     private Node root;
 
-
     public BinarySearchTree() {
         capatity = 0;
     }
@@ -42,23 +41,26 @@ public class BinarySearchTree {
 
 
     public void inorder() {
-        inorder(root);
+        int i=0;
+        inorder(root,i);
         System.out.println();
     }
 
-    private void inorder(Node root) {
+    private void inorder(Node root,int i) { // i oznacza poziom w drzewie
         if (root != null) {
-            inorder(root.left());
-            System.out.print(root.getKey() + " ");
-            inorder(root.right());
+            i++;
+            inorder(root.left(),i);
+            System.out.print(root.getKey() + "{" + i+"} ");
+            inorder(root.right(),i);
         }
-
     }
 
     public boolean search(Comparable a) {
+
         if (!isEmpty()) {
             Node node = root;
             while (node != null && a.compareTo(node.getKey()) != 0) {
+
                 if (a.compareTo(node.getKey()) < 0)
                     node = node.left();
                 else if (a.compareTo(node.getKey()) > 0)
@@ -71,22 +73,19 @@ public class BinarySearchTree {
         return false;
     }
 
-    void delete(Comparable key)
-    {
+    void delete(Comparable key) {
         root = del(root, key);
     }
 
-    private Node del(Node root, Comparable key)
-    {
-      //puste
-        if (root == null)  return root;
+    private Node del(Node root, Comparable key) {
+        //puste
+        if (root == null) return root;
 
-        if (key.compareTo(root.getKey())<0)
+        if (key.compareTo(root.getKey()) < 0)
             root.setLeft(del(root.left(), key));
-        else if (key.compareTo(root.getKey())>0)
+        else if (key.compareTo(root.getKey()) > 0)
             root.setRight(del(root.right(), key));
-        else
-        {
+        else {
             if (root.left() == null)
                 return root.right();
             else if (root.right() == null)
@@ -102,25 +101,24 @@ public class BinarySearchTree {
     private Comparable minValue(Node root)  // min wartosc w poddrzewie
     {
         Comparable minv = root.getKey();
-        while (root.left() != null)
-        {
+        while (root.left() != null) {
             minv = root.left().getKey();
             root = root.left();
         }
         return minv;
     }
 
-
-
-    private class Node <T extends Comparable<T>> implements Comparable<Node> {
+    private class Node<T extends Comparable<T>> implements Comparable<Node> {
         private T key;
-        private Node left,right;
+        private Node left, right;
 
         Node(T key) {
             this.key = key;
         }
 
-        void setKey(T key) {this.key = key;}
+        void setKey(T key) {
+            this.key = key;
+        }
 
         T getKey() {
             return key;
@@ -147,6 +145,11 @@ public class BinarySearchTree {
             return this.key.compareTo((T) o.key);
         }
 
+        @Override
+        public String toString() {
+            return key.toString();
+
+        }
     }
 
 }

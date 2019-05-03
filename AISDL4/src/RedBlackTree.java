@@ -133,22 +133,29 @@ public class RedBlackTree {
         }
     }
 
+
     public void inorder() {
-        inorder(root);
+        int i=0;
+        inorder(root,i);
         System.out.println();
     }
 
-    private void inorder(RBNode root) {
+    private void inorder(RBNode root,int i) { // i oznacza poziom w drzewie
         if (root != null) {
-            inorder(root.left());
+            i++;
+            inorder(root.left(),i);
             if (root.color)
-                System.out.print("{" + root.getKey() + ", " + root.parent + ",black" + "} ");
+                System.out.print("{" + root.getKey() + ", " + root.parent + ",black "+i + "} ");
             else
-                System.out.print("{" + root.getKey() + ", " + root.parent + ",red" + "} ");
-            inorder(root.right());
+                System.out.print("{" + root.getKey() + ", " + root.parent + ",red " + i +"} ");
+            inorder(root.right(),i);
         }
-
     }
+
+
+
+
+
 
     public void clear() {
         root = null;

@@ -7,26 +7,22 @@ public class Test {
 
 
 
-        RedBlackTree redBlackTree = new RedBlackTree(); // inserty działają elegancko
 
 
-    redBlackTree.insert(25);
-    redBlackTree.insert(1);
-    redBlackTree.insert(17);
-    redBlackTree.insert(13);
-    redBlackTree.insert(6);
-    redBlackTree.insert(15);
-    redBlackTree.insert(22);
-    redBlackTree.insert(8);
-    redBlackTree.insert(11);
-    redBlackTree.insert(27);
+//        SplayTree splay = new SplayTree();
+//        splay.insert(31);
+////        for (int i=0 ;i<50 ; i++)
+////        splay.insert(generator.nextInt(50));
+//        splay.inorder();
+//        splay.insert(31);
+//        splay.insert(31);
+//        splay.insert(31);
+//        splay.find(31);
+//        splay.inorder();
 
+        FileParser fileParser = new FileParser();
+        System.out.println(fileParser.parseFile("/home/krzyhoo/Desktop/AISDL4/src/fileparsertest"));
 
-
-
-     // jest dwóch czerwonych a czarny ma byc 11
-            // INSERT DZIALA NA BANK 100%
-        redBlackTree.inorder();
 
     }
 }
