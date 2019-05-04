@@ -5,16 +5,18 @@ import java.util.Scanner;
 
 public class FileParser {
 
-    public ArrayList parseFile(String path) {
-        ArrayList list = new ArrayList();
+    public ArrayList<String> parseFile(String path) {
+        ArrayList<String> list = new ArrayList();
 
         String file = path;
         Scanner scanner = null;
         try {
             scanner = new Scanner(new File(file));
         } catch (FileNotFoundException e) {
+            System.out.println("error");
             e.printStackTrace();
         }
+//        scanner.useDelimiter(" ");
         scanner.useDelimiter(" ");
 
         while (scanner.hasNext()) {

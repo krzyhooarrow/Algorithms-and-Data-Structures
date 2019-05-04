@@ -8,7 +8,21 @@ public class SplayTree {
     private long counterSWAP = 0;
     private long counterIF =0;
     private long counterCHANGES=0;
+    private long cS=0;
+    private long cI=0;
+    private long cD=0;
 
+    public long getcS() {
+        return cS;
+    }
+
+    public long getcI() {
+        return cI;
+    }
+
+    public long getcD() {
+        return cD;
+    }
 
     public long getCounterSWAP() {
         return counterSWAP;
@@ -32,6 +46,7 @@ public class SplayTree {
 
 
     public void insert(Comparable key) {
+        cI++;
         SNode n;
         int c;
         counterIF++;
@@ -49,10 +64,12 @@ public class SplayTree {
         counterIF++;
         n = new SNode(key);
         if (c < 0) {
+            counterSWAP+=3;
             n.left = root.left;
             n.right = root;
             root.left = null;
         } else {
+            counterSWAP+=3;
             n.right = root.right;
             n.left = root;
             root.right = null;
@@ -72,6 +89,7 @@ public class SplayTree {
                 if (t.left == null) break;
                 counterIF++;
                 if (key.compareTo(t.left.key) < 0) {
+                    counterSWAP+=2;
                     y = t.left;                           //rightrot
                     t.left = y.right;
                     y.right = t;
@@ -79,6 +97,7 @@ public class SplayTree {
                     counterIF++;
                     if (t.left == null) break;
                 }
+                counterSWAP++;
                 r.left = t;                                 //link right
                 r = t;
                 t = t.left;
@@ -87,6 +106,7 @@ public class SplayTree {
                 if (t.right == null) break;
                 counterIF++;
                 if (key.compareTo(t.right.key) > 0) {
+                    counterSWAP+=2;
                     y = t.right;                            //left rot
                     t.right = y.left;
                     y.left = t;
@@ -94,6 +114,7 @@ public class SplayTree {
                     counterIF++;
                     if (t.right == null) break;
                 }
+                counterSWAP++;
                 l.right = t;                                //left link
                 l = t;
                 t = t.right;
@@ -101,6 +122,7 @@ public class SplayTree {
                 break;
             }
         }
+        counterSWAP+=4;
         l.right = t.left;
         r.left = t.right;
         t.left = header.right;
@@ -125,6 +147,7 @@ public class SplayTree {
     }
 
     public boolean find(Comparable key) {
+        cS++;
         if (root == null) return false;
         splay(key);
         if(root.key.compareTo(key) != 0) return false;
@@ -133,6 +156,7 @@ public class SplayTree {
 
 
     public void remove(Comparable key) {
+        cD++;
         SNode x;
         splay(key);
         counterIF++;
@@ -143,8 +167,10 @@ public class SplayTree {
         capatity--;
         counterIF++;
         if (root.left == null) {
+            counterSWAP++;
             root = root.right;
         } else {
+            counterSWAP++;
             x = root.right;
             root = root.left;
             splay(key);
