@@ -178,6 +178,9 @@ public class SplayTree {
         }
     }
 
+    public void clear() {root=null; capatity=0;
+    }
+
     private class SNode<T extends Comparable<T>> implements Comparable<SNode> {
         private T key;
 

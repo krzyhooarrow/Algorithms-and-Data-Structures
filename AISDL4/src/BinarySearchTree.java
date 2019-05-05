@@ -154,6 +154,9 @@ public class BinarySearchTree {
         return minv;
     }
 
+    public void clear() {root=null; capatity=0;
+    }
+
     private class Node<T extends Comparable<T>> implements Comparable<Node> {
         private T key;
         private Node left, right;

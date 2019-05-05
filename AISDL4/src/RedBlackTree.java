@@ -1,29 +1,14 @@
-import java.util.ArrayList;
-
 @SuppressWarnings("Duplicates")
-public class RedBlackTree {
 
-    private RBNode root;
-    private int capatity;
+
+public class RedBlackTree {
+    private final Node nil = new Node(-1, false);
+    private Node root = nil;
+    private int capatity = 0;
 
     private long counterSWAP = 0;
     private long counterIF = 0;
-    private long counterCHANGES = 0;
-    private long cS = 0;
-    private long cI = 0;
-    private long cD = 0;
 
-    public long getcS() {
-        return cS;
-    }
-
-    public long getcI() {
-        return cI;
-    }
-
-    public long getcD() {
-        return cD;
-    }
 
     public long getCounterSWAP() {
         return counterSWAP;
@@ -33,194 +18,53 @@ public class RedBlackTree {
         return counterIF;
     }
 
-    public long getCounterCHANGES() {
-        return counterCHANGES;
+
+    public void clear() {
+        capatity = 0;
+        root = nil;
     }
 
-
-    public ArrayList<RBNode> nodes = new ArrayList<>();
-
-    public void isBugged() {
-        for (RBNode r : nodes
-        ) {
-            if (!r.color) {
-                if (r.parent != null && !r.parent.color)
-                    System.out.println("bugged");
-                if (r.left != null && !r.left.color)
-                    System.out.println("bugged");
-                if (r.right != null && !r.right.color)
-                    System.out.println("bugged");
-            }
-        }
-    }
-
-    public RedBlackTree() {
-        this.capatity = 0;
-    }
-
-    public int capatity() {
+    public int size() {
         return capatity;
     }
 
-    public boolean isEmpty() {
-        return root == null;
-    }
-
     public void insert(Comparable a) {
-        cI++;
-        if (isEmpty()) {
+        Node element = new Node(a);
+
+        if (root == nil) {
             capatity++;
-            root = new RBNode(a, true);
-        } else {
-            RBNode node = new RBNode(a, false);
-            capatity++;
-            nodes.add(node);
-            downheap(node, root);
-            insertFixUp(node);
+            root = new Node(a, nil, nil, nil, false);
+            return;
         }
-    }
-
-    private void insertFixUp(RBNode node) {
-        RBNode y;
-        while (node.parent != null && !node.parent.color) {
-            counterIF++;
-
-            if (node.parent.parent.left != null && node.parent == node.parent.parent.left) {
+        Node n = root;
+        capatity++;
+        counterSWAP += 2;
+        while (true) {
+            if (element.compareTo(n) < 0) {
                 counterIF++;
-                y = node.parent.parent.right;
-                if (y != null && !y.color) {
-                    counterSWAP += 3;
+
+                if (n.left == nil) {
                     counterIF++;
-                    node.parent.setColor(true);
-                    y.changeColor();
-                    node.parent.parent.setColor(false);
-                    node = node.parent.parent;
+                    n.left = new Node(a, nil, nil, n);
+                    fixAfterInsert(n.left);
+                    break;
                 } else {
-                    counterIF += 2;
-                    if (node == node.parent.right) {
-
-                        node = node.parent;
-                        insertLeftRotate(node);
-                    }
-                    counterSWAP += 2;
-                    node.parent.setColor(true);
-                    node.parent.parent.setColor(false);
-                    insertRightRotate(node.parent.parent);
+                    counterIF++;
+                    n = n.left;
                 }
-
-            } else if (node.parent.parent.right != null && node.parent == node.parent.parent.right) {
-                counterIF += 3;
-                {
-
-                    y = node.parent.parent.left;
-                    if (y != null && !y.color) {
-                        counterSWAP += 3;
-                        node.parent.setColor(true);
-                        y.setColor(true);
-                        node.parent.parent.setColor(false);
-                        node = node.parent.parent;
-                    } else {
-                        counterIF++;
-                        if (node == node.parent.left) {
-                            node = node.parent;
-                            insertRightRotate(node);
-                        }
-                        counterSWAP += 2;
-                        node.parent.setColor(true);
-                        node.parent.parent.setColor(false);
-                        insertLeftRotate(node.parent.parent);
-                    }
-
+            } else if (element.compareTo(n) > 0) {
+                counterIF++;
+                if (n.right == nil) {
+                    counterIF++;
+                    n.right = new Node(a, nil, nil, n);
+                    fixAfterInsert(n.right);
+                    break;
+                } else {
+                    counterIF++;
+                    n = n.right;
                 }
-            }
+            } else break;
         }
-        root.setColor(true);
-    }
-
-    private void insertRightRotate(RBNode x) {
-        counterSWAP++;
-        RBNode y = x.left;
-        x.left = y.right;
-        if (y.right != null) {
-            y.right.parent = x;
-            counterSWAP++;
-        }
-        counterSWAP++;
-        y.parent = x.parent;
-        counterIF++;
-        if (x.parent == null) {
-            counterIF++;
-            this.root = y;
-        } else if (x == x.parent.right) {
-            counterSWAP++;
-            counterIF += 2;
-            x.parent.right = y;
-        } else {
-            counterSWAP++;
-            counterIF += 2;
-            x.parent.left = y;
-        }
-        counterSWAP += 2;
-        y.right = x;
-        x.parent = y;
-
-    }
-
-    private void insertLeftRotate(RBNode node) {
-        counterSWAP++;
-        RBNode y = node.right;
-        node.right = y.left;
-        if (y.left != null && y.left.parent != null) {
-            y.left.parent = node;
-            counterSWAP++;
-        }
-        counterIF++;
-        if (y.parent != null) {
-            y.parent = node.parent;
-            counterSWAP++;
-        }
-        counterIF++;
-        if (node.parent == null)
-            root = y;
-        else if (node == node.parent.left) {
-            node.parent.left = y;
-            counterSWAP++;
-            counterIF++;
-        } else {
-            node.parent.right = y;
-            counterSWAP++;
-            counterIF++;
-        }
-        counterSWAP += 2;
-        counterIF++;
-        y.left = node;
-        node.parent = y;
-    }
-
-    private void downheap(RBNode node, RBNode actual) {
-        if (node.compareTo(actual) < 0) {
-            counterIF++;
-            if (actual.left() == null) {
-                counterIF++;
-                counterSWAP++;
-                actual.setLeft(node);
-                node.setParent(actual);
-            } else {
-                downheap(node, actual.left());
-                counterIF++;
-            }
-        } else if (node.compareTo(actual) > 0) {
-            counterIF += 2;
-            if (actual.right() == null) {
-                counterIF++;
-                counterSWAP++;
-                actual.setRight(node);
-                node.setParent(actual);
-            } else {
-                downheap(node, actual.right());
-                counterIF++;
-            }
-        } else capatity--;
     }
 
 
@@ -230,340 +74,330 @@ public class RedBlackTree {
         System.out.println();
     }
 
-    private void inorder(RBNode root, int i) { // i oznacza poziom w drzewie
+    private void inorder(Node root, int i) { // i oznacza poziom w drzewie
         if (root != null) {
+
             i++;
-            inorder(root.left(), i);
-            if (root.color)
-                System.out.print("{" + root.getKey() + ", " + root.parent + ",black " + i + "} ");
-            else
-                System.out.print("{" + root.getKey() + ", " + root.parent + ",red " + i + "} ");
-            inorder(root.right(), i);
+            inorder(root.left, i);
+            if (!root.red && root != nil)
+                System.out.print("{" + root.value + "," + root.parent + ",black ," + i + "} ");
+            else if (root != nil)
+                System.out.print("{" + root.value + ", " + root.parent + ",red " + i + "} ");
+            inorder(root.right, i);
         }
     }
 
-    public void clear() {
-        root = null;
-        capatity = 0;
-    }
 
-    private RBNode findNode(RBNode findNode, RBNode node) {
-        cS++;
-        counterIF++;
-        if (root == null) {
-            return null;
-        }
-        counterIF++;
-        if (findNode.compareTo(node) < 0) {
-            if (node.left != null) {
-                return findNode(findNode, node.left);
-            }
-        } else if (findNode.compareTo(node) > 0) {
-            counterIF++;
-            if (node.right != null) {
-                return findNode(findNode, node.right);
-            }
-        } else if (findNode.key == node.key) {
-            counterIF += 2;
-            return node;
-        }
-        return null;
-    }
+    private void fixAfterInsert(Node n) {
 
+        while (n.parent.red) {
 
-    public boolean delete(Comparable a) {
-        try {
-            cD++;
-            RBNode z = new RBNode(a);
-            counterIF++;
-            if ((z = findNode(z, root)) == null)
-                return false;
-            RBNode x;
-            RBNode y = z;
-            boolean yc = y.color;
-            counterIF++;
-            if (z.left == null) {
-                x = z.right;
-                replace(z, z.right);
-            } else if (z.right == null) {
+            Node gp = n.parent.parent;
+
+            if (n.parent == gp.left) {
                 counterIF++;
-                x = z.left;
-                replace(z, z.left);
-            } else {
-                counterIF++;
-                y = treeMinimum(z.right);
-                yc = y.color;
-                x = y.right;
-                counterIF++;
-                if (y.parent == z) {
+                Node uncle = gp.right;
+                if (uncle.red) {
+                    counterIF++;
+                    gp.red = true;
+                    uncle.red = false;
+                    n.parent.red = false;
+                    counterSWAP += 3;
+                    n = gp;
+                } else if (n.parent.right == n) {
+                    counterIF++;
+                    Node tmp = n.parent;
+                    leftRotate(n.parent);
                     counterSWAP++;
-                    x.parent = y;
+                    n = n.left;
                 } else {
+                    counterIF++;
+                    rightRotate(gp);
+                    gp.red = true;
+                    n.parent.red = false;
                     counterSWAP += 2;
-                    replace(y, y.right);
-                    y.right = z.right;
-                    y.right.parent = y;
                 }
-                replace(z, y);
-                counterSWAP += 3;
-                y.left = z.left;
-                y.left.parent = y;
-                y.color = z.color;
-            }
-            counterIF++;
-            if (yc)
-                fixDelColor(x);
-            return true;
-        }catch (NullPointerException exc){}
-    return false;}
-    private void fixDelColor(RBNode x) {
-        try {
-            while (x != root && x.color) {
+            } else {
                 counterIF++;
-                if (x == x.parent.left) {
-                    counterIF += 2;
-                    RBNode w = x.parent.right;
-                    if (!w.color) {
-                        counterSWAP += 2;
-                        w.changeColor();
-                        x.parent.setColor(false);
-                        deleteRotateLeft(x.parent);
-                        w = x.parent.right;
-                    }
-                    if (w.left.color && w.right.color) {
-                        counterSWAP++;
-                        w.setColor(false);
-                        x = x.parent;
-                        continue;
-                    } else if (w.right.color) {
-                        counterSWAP += 2;
-                        counterIF++;
-                        w.left.setColor(true);
-                        w.setColor(false);
-                        deleteRotateRight(w);
-                        w = x.parent.right;
-                    }
+                Node uncle = gp.left;
+                if (uncle.red) {
                     counterIF++;
-                    if (!w.right.color) {
-                        counterSWAP += 3;
-                        w.color = x.parent.color;
-                        x.parent.setColor(true);
-                        w.right.setColor(true);
-                        deleteRotateLeft(x.parent);
-                        x = root;
-                    }
+                    gp.red = true;
+                    uncle.red = false;
+                    n.parent.red = false;
+                    counterSWAP += 3;
+                    n = gp;
+                } else if (n.parent.left == n) {
+                    counterIF++;
+                    Node tmp = n.parent;
+                    rightRotate(n.parent);
+
+                    n = n.right;
                 } else {
-                    counterIF += 2;
-                    RBNode w = x.parent.left;
-                    if (!w.color) {
-                        counterSWAP += 2;
-                        w.setColor(true);
-                        x.parent.setColor(false);
-                        deleteRotateRight(x.parent);
-                        w = x.parent.left;
-                    }
-                    if (w.right.color && w.left.color) {
+                    counterIF++;
+                    leftRotate(gp);
+                    gp.red = true;
+                    n.parent.red = false;
+                    counterSWAP += 2;
+                }
+            }
+        }
+        counterSWAP++;
+        root.red = false;
+    }
+
+    private void rightRotate(Node n) {
+
+
+        Node nl = n.left;
+        n.left = nl.right;
+        counterSWAP++;
+        if (nl.right != nil) {
+            counterIF++;
+            nl.right.parent = n;
+        }
+        swap(n, nl);
+        nl.right = n;
+        n.parent = nl;
+    }
+
+    private void leftRotate(Node n) {
+
+        counterSWAP++;
+        Node nr = n.right;
+        n.right = nr.left;
+
+        if (nr.left != nil) {
+            counterIF++;
+            nr.left.parent = n;
+        }
+        swap(n, nr);
+        nr.left = n;
+        n.parent = nr;
+    }
+
+
+    private void swap(Node n1, Node n2) {
+
+        if (n1.parent == nil) {
+            counterIF++;
+            root = n2;
+        } else {
+            counterIF++;
+            if (n1.parent.left == n1) {
+                counterIF++;
+                n1.parent.left = n2;
+            } else {
+                counterIF++;
+                n1.parent.right = n2;
+            }
+        }
+        n2.parent = n1.parent;
+    }
+
+
+    public Node search(Comparable element) {
+        Node node = new Node(element);
+        Node actual = root;
+        while (actual != nil && node.value.compareTo(actual.value) != 0) {
+            counterIF++;
+            if (node.value.compareTo(actual.value) < 0)
+                actual = actual.left;
+            else actual = actual.right;
+        }
+        if (actual == nil)
+            return null;
+        else return actual;
+
+    }
+
+
+    public void remove(Comparable element) {
+        Node z = search(element);
+        if (z != null) {
+
+            capatity--;
+            Node x;
+            boolean yoc;
+            if (z.right == nil) {
+                counterIF++;
+                swap(z, z.left);
+                x = z.left;
+                yoc = z.red;
+            } else {
+                counterIF++;
+                Node sr = successor(z);
+
+                x = sr.right;
+                yoc = sr.red;
+                if (sr.parent != z) {
+                    counterIF++;
+                    swap(sr, x);
+                    sr.right = z.right;
+                    counterSWAP += 2;
+                    z.right.parent = sr;
+                } else {
+                    counterIF++;
+                    x.parent = sr;
+                    counterSWAP++;
+                }
+                counterSWAP++;
+                sr.left = z.left;
+                if (z.left != nil) {
+                    counterSWAP++;
+                    counterIF++;
+                    z.left.parent = sr;
+                }
+                counterSWAP++;
+                sr.red = z.red;
+                swap(z, sr);
+            }
+            if (!yoc) {
+                counterIF++;
+                fixAfterRemove(x);
+            }
+        }
+    }
+
+    private void fixAfterRemove(Node x) {       // ciągle jebany null
+        while (x != root && !x.red) {
+            counterIF++;
+            if (x == x.parent.left) {
+                counterIF++;
+                Node w = x.parent.right;
+
+                if (w.red) {
+                    counterSWAP += 2;
+                    counterIF++;
+                    x.parent.red = true;
+                    w.red = false;
+                    leftRotate(x.parent);
+                } else {
+                    counterIF++;
+                    if (!w.left.red && !w.right.red) {
                         counterSWAP++;
-                        w.setColor(false);
+                        w.red = true;
                         x = x.parent;
-                        continue;
-                    } else if (w.left.color) {
+                        counterIF++;
+                    } else if (w.left.red && !w.right.red) {
+                        counterSWAP += 2;
+                        w.red = true;
+                        counterIF++;
+                        w.left.red = false;
+                        rightRotate(w);
+                    } else {
+                        counterSWAP += 3;
+                        counterIF++;
+                        w.red = x.parent.red;
+                        w.right.red = false;
+                        x.parent.red = false;
+                        leftRotate(x.parent);
+                        x = root;
+                    }
+                }
+            } else {
+                Node w = x.parent.left;
+
+                if (w.red) {
+                    counterSWAP += 2;
+                    counterIF++;
+                    x.parent.red = true;
+                    w.red = false;
+                    rightRotate(x.parent);
+                } else {
+                    if (!w.left.red && !w.right.red) {
+                        counterSWAP++;
+                        counterIF++;
+                        w.red = true;
+                        x = x.parent;
+                    } else if (!w.left.red && w.right.red) {
                         counterSWAP += 2;
                         counterIF++;
-                        w.right.setColor(true);
-                        w.setColor(false);
-                        deleteRotateLeft(w);
-                        w = x.parent.left;
-                    }
-                    counterIF++;
-                    if (!w.left.color) {
+                        w.red = true;
+                        w.right.red = false;
+                        leftRotate(w);
+                    } else {
+                        counterIF++;
                         counterSWAP += 3;
-                        w.color = x.parent.color;
-                        x.parent.setColor(true);
-                        w.left.setColor(true);
-                        deleteRotateRight(x.parent);
+                        w.red = x.parent.red;
+                        w.left.red = false;
+                        x.parent.red = false;
+                        rightRotate(x.parent);
                         x = root;
                     }
                 }
             }
-            x.color = true;
-        }catch (NullPointerException ignored){}
-    }
-
-    private RBNode treeMinimum(RBNode subTreeRoot)  // minimum w danym poddrzewie
-    {
-        while (subTreeRoot.left != null) {
-            counterIF++;
-            subTreeRoot = subTreeRoot.left;
         }
-        return subTreeRoot;
+        counterSWAP++;
+        x.red = false;
     }
 
-    private void replace(RBNode target, RBNode with) {
-        try{
-        if (target.parent == null) {
-            counterIF++;
-            root = with;
-        } else if (target == target.parent.left) {
-            counterSWAP++;
-            counterIF += 2;
-            target.parent.left = with;
-        } else {
-            counterIF += 2;
-            counterSWAP += 2;
-            target.parent.right = with;
-        }
-        with.parent = target.parent;
-    }catch (NullPointerException exc){}
-    }
+    private Node successor(Node node) {
 
-
-    private void deleteRotateLeft(RBNode node) {
-        if (node.parent != null) {
+        if (node.right == nil) {
             counterIF++;
-            if (node == node.parent.left) {
-                counterSWAP++;
-                node.parent.left = node.right;
-            } else {
-                counterSWAP++;
-                node.parent.right = node.right;
+            Node p = node.parent;
+            while (p != nil && p.right == node) {
+
+                p = p.parent;
+                node = node.parent;
             }
-            counterIF += 2;
-            counterSWAP += 2;
-            node.right.parent = node.parent;
-            node.parent = node.right;
-            if (node.right.left != null) {
-                node.right.left.parent = node;
-                counterSWAP++;
-            }
-            counterSWAP += 2;
-            node.right = node.right.left;
-            node.parent.left = node;
+            return p;
         } else {
             counterIF++;
-            counterSWAP += 5;
-            RBNode right = root.right;
-            root.right = right.left;
-            right.left.parent = root;
-            root.parent = right;
-            right.left = root;
-            right.parent = null;
-            root = right;
-        }
-    }
-
-    private void deleteRotateRight(RBNode node) {
-        if (node.parent != null) {
-            counterIF++;
-            if (node == node.parent.left) {
-                counterSWAP++;
-                node.parent.left = node.left;
-            } else {
-                counterSWAP++;
-                node.parent.right = node.left;
+            Node n = node.right;
+            while (n.left != nil) {
+                n = n.left;
             }
-            counterIF += 2;
-            counterSWAP += 2;
-            node.left.parent = node.parent;
-            node.parent = node.left;
-            if (node.left.right != null) {
-                node.left.right.parent = node;
-                counterSWAP++;
-            }
-            counterSWAP += 2;
-            node.left = node.left.right;
-            node.parent.right = node;
-        } else {
-            counterSWAP += 5;
-            counterIF++;
-            RBNode left = root.left;
-            root.left = root.left.right;
-            left.right.parent = root;
-            root.parent = left;
-            left.right = root;
-            left.parent = null;
-            root = left;
+            return n;
         }
     }
 
-    public boolean search(Comparable a) {
-        cS++;
-        if (!isEmpty()) {
-            RBNode node = root;
-            while (node != null && a.compareTo(node.getKey()) != 0) {
-                counterIF++;
-                if (a.compareTo(node.getKey()) < 0){
-                    node = node.left();   counterIF++;}
-                else if (a.compareTo(node.getKey()) > 0){
-                    node = node.right();   counterIF+=2; }
-                else{counterIF+=2; break;
-                }}
-            if (node != null)
-                return true;
-        }
-        return false;
+    public boolean isEmpty() {
+        return root == nil;
     }
 
 
+    private class Node<T extends Comparable<T>> implements Comparable<Node> {
+        T value;
+        Node left, right, parent;
+        boolean red = true;
 
-    private class RBNode<T extends Comparable<T>> implements Comparable<RBNode> {
-
-        private T key;
-        private RBNode left, right, parent;
-        private boolean color;      // czarny to true czerwony false
-
-        RBNode(T key, boolean b) {
-            this.key = key;
-            this.color = b;
-        }
-
-        public RBNode(T a) {
-            this.key = a;
-        }
-
-        T getKey() {
-            return key;
-        }
-
-        RBNode left() {
-            return left;
-        }
-
-        void setLeft(RBNode left) {
+        public Node(T value, Node left, Node right, Node parent, boolean red) {
+            this.value = value;
             this.left = left;
-        }
-
-        RBNode right() {
-            return right;
-        }
-
-        void setRight(RBNode right) {
             this.right = right;
+            this.parent = parent;
+            this.red = red;
         }
 
-        void setParent(RBNode parent) {
+        public Node(T value, Node left, Node right, Node parent) {
+            this.value = value;
+            this.left = left;
+            this.right = right;
             this.parent = parent;
         }
 
-        void setColor(boolean b) {
-            this.color = b;
+        public Node(T value, boolean red) {
+            this.value = value;
+            this.red = red;
         }
 
-        void changeColor() {
-            color = !color;
-        }
-
-        @Override
-        public int compareTo(RBNode o) {
-            return this.key.compareTo((T) o.key);
+        public Node(T value) {
+            this.value = value;
         }
 
         @Override
         public String toString() {
-            return key.toString();
+            return " " +
+                    value;
+
         }
 
+        @Override
+        public int compareTo(Node o) {
+            return this.value.compareTo((T) o.value);
+        }
     }
-
 
 }

@@ -17,7 +17,7 @@ public class FileParser {
             e.printStackTrace();
         }
 //        scanner.useDelimiter(" ");
-        scanner.useDelimiter(" ");
+        scanner.useDelimiter("\n");
 
         while (scanner.hasNext()) {
             list.add(scanner.next());
