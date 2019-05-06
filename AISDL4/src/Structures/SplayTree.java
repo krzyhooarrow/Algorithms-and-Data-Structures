@@ -1,3 +1,5 @@
+package Structures;
+
 @SuppressWarnings("Duplicates")
 public class SplayTree {
     private  SNode header = new SNode(null);
