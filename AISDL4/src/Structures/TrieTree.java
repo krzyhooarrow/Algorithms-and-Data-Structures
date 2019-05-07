@@ -12,7 +12,6 @@ public class TrieTree<T extends Comparable<T>> {
         TrieNode var, temp = root;
         for (int i = 0; i < keyword.length; i++) {
             var = temp.children.search(new TrieNode(keyword[i]));
-
             if (var == null) {
                 var = new TrieNode(keyword[i]);
                 temp.children.insert(var);
@@ -20,39 +19,45 @@ public class TrieTree<T extends Comparable<T>> {
 
             temp = var;
         }
+        temp.isEndOfSequence = true;
     }
 
-    public void inorder() {   read(root );  }
+    public void inorder() {
+        read(root);
+    }
 
-    public void read(TrieNode root ) {
-            for (int i =0 ; i < root.children.size() ; i++){
+    public void read(TrieNode root) {
+        for (int i = 0; i < root.children.size(); i++) {
             System.out.println(root.children.arrayList()[i]);
 //                if (root.children.arrayList()!=null)
-                    for (int j =0 ; j < root.children.arrayList()[i].children.size();j++){
-                        System.out.print(root.children.arrayList()[i].children.arrayList()[j] + " ");
+            for (int j = 0; j < root.children.arrayList()[i].children.size(); j++) {
+                System.out.print(root.children.arrayList()[i].children.arrayList()[j] + " ");
                 read(root.children.arrayList()[i].children.arrayList()[j]);
 
-                    }
             }
+        }
 
 
     }
 
-    public boolean search(T[] keyword){
+    public boolean search(T[] keyword) {
         TrieNode var, temp = root;
         for (int i = 0; i < keyword.length; i++) {
-            if ((var = temp.children.search(new TrieNode(keyword[i])))!=null){
+            if ((var = temp.children.search(new TrieNode(keyword[i]))) != null) {
                 temp = var;
                 continue;
             }
             return false;
         }
-        return true;
+        if (temp.isEndOfSequence)
+            return true;
+        return false;
     }
 
 
     private class TrieNode<T extends Comparable<T>> implements Comparable<TrieNode> {
         T value;
+        private boolean isEndOfSequence = false;
         DynamicArray children = new DynamicArray();
 
         public TrieNode(T value) {
@@ -69,7 +74,7 @@ public class TrieTree<T extends Comparable<T>> {
 
         @Override
         public String toString() {
-            return  value + " "
+            return value + " "
                     ;
         }
     }

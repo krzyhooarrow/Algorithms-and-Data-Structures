@@ -12,10 +12,7 @@ public class Test {
     public static void main(String[] args) {
 //       test();
 
-        testINT(5000, Integer.MAX_VALUE, 1);
-
-
-
+        testINT(7000, Integer.MAX_VALUE, 1);
 
 
     }
@@ -103,7 +100,7 @@ public class Test {
             data[0] += System.currentTimeMillis() - t1;
             t1 = System.currentTimeMillis();
             for (int i = 0; i < number; i++)
-                splayTree.find(temp[generator.nextInt(4)]);
+                splayTree.find(temp[generator.nextInt(array.length)]);
 
             data[1] += System.currentTimeMillis() - t1;
             t1 = System.currentTimeMillis();
@@ -120,11 +117,11 @@ public class Test {
             data[3] += System.currentTimeMillis() - t1;
             t1 = System.currentTimeMillis();
             for (int i = 0; i <number; i++)
-                binarySearchTree.search(temp[generator.nextInt(temp.length)]);
+                binarySearchTree.search(temp[generator.nextInt(array.length)]);
 
             data[4] += System.currentTimeMillis() - t1;
             t1 = System.currentTimeMillis();
-            for (int i = 0; i < number; i++)
+            for (int i = 0; i <  number; i++)
                 binarySearchTree.delete(temp2[i]);
 
             data[5] += System.currentTimeMillis() - t1;
@@ -137,7 +134,7 @@ public class Test {
             data[6] += System.currentTimeMillis() - t1;
             t1 = System.currentTimeMillis();
             for (int i = 0; i < number; i++)
-                redBlackTree.search(temp[generator.nextInt(temp.length)]);
+                redBlackTree.search(temp[generator.nextInt(array.length)]);
 
             data[7] += System.currentTimeMillis() - t1;
             t1 = System.currentTimeMillis();
@@ -146,43 +143,42 @@ public class Test {
 
             data[8] += System.currentTimeMillis() - t1;
 
-
-
             t1 = System.currentTimeMillis();
             for (int i = 0; i <  number; i++) {
-                trieTree.insert(IntToIntArray(array[i]));
+                treap.insert(array[i]);
             }
             data[9] += System.currentTimeMillis() - t1;
 
 
             t1 = System.currentTimeMillis();
-            for (int i = 0; i <  number; i++) {
-                trieTree.search(IntToIntArray(temp[i]));
+            for (int i = 0; i < number; i++) {
+                treap.search(temp[generator.nextInt(array.length)]);
             }
             data[10] += System.currentTimeMillis() - t1;
 
 
-
+            t1 = System.currentTimeMillis();
+            for (int i = 0; i <   number; i++) {
+                treap.remove(temp2[i]);
+            }
+            data[11] += System.currentTimeMillis() - t1;
 
             t1 = System.currentTimeMillis();
             for (int i = 0; i <  number; i++) {
-                treap.insert(array[i]);
+                trieTree.insert(IntToIntArray(array[i]));
             }
             data[12] += System.currentTimeMillis() - t1;
 
 
             t1 = System.currentTimeMillis();
             for (int i = 0; i <  number; i++) {
-                treap.search(temp[i]);
+                trieTree.search(IntToIntArray(temp[generator.nextInt(array.length)]));
             }
             data[13] += System.currentTimeMillis() - t1;
 
 
-            t1 = System.currentTimeMillis();
-            for (int i = 0; i <  number; i++) {
-                treap.remove(temp2[i]);
-            }
-            data[14] += System.currentTimeMillis() - t1;
+
+
 
 //            trieTree.inorder();
 
@@ -235,9 +231,9 @@ public class Test {
                 else if (i == 6)
                     System.out.print("RedBlack tree \nInsert: ");
                 else if (i==9)
-                    System.out.print("Trie tree tree \nInsert: ");
+                    System.out.print("Treap tree tree \nInsert: ");
                 else if (i==12)
-                    System.out.print("Structures.Treap tree tree \nInsert: ");
+                    System.out.print("Trie tree tree \nInsert: ");
 
                 if (i % 3 == 1)
                     System.out.print("Search :");

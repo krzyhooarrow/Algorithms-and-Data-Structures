@@ -59,7 +59,7 @@ public class SplayTree {
         }
         splay(key);
         counterIF++;
-        if ((c = key.compareTo(root.key)) == 0) { // czy w tym drzewie są duplikaty?
+        if ((c = key.compareTo(root.key)) == 0) { //
             return;
         }
         capatity++;
